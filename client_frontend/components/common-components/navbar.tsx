@@ -136,7 +136,7 @@ const Navbar = () => {
                   </div>
                   
                   {/* Mobile Logo */}
-                  <div className="lg:hidden relative w-[140px] sm:w-[160px] md:w-[180px] h-auto">
+                  <div className="lg:hidden relative w-[340px] sm:w-[160px] md:w-[180px] h-auto">
                     <Image 
                       src="/images/logo.png" 
                       alt="Company Logo" 
@@ -270,14 +270,7 @@ const Navbar = () => {
               {/* Fixed Header */}
               <div className="flex-shrink-0 p-4 sm:p-5 border-b border-yellow-500/20 bg-black/95">
                 <div className="flex items-center justify-between">
-                  <div className="relative w-28 sm:w-32 h-8 sm:h-10">
-                    <Image 
-                      src="/images/logo.png" 
-                      alt="Company Logo" 
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
+                  
                   <button
                     onClick={() => {
                       setIsMenuOpen(false);
@@ -293,57 +286,7 @@ const Navbar = () => {
               {/* Scrollable Content */}
               <div className="flex-1 overflow-y-auto">
                 <div className="p-4 sm:p-5">
-                  {/* Mobile Contact Info */}
-                  <div className="mb-5 pb-5 border-b border-gray-800/50">
-                    <div className="space-y-2.5 sm:space-y-3">
-                      <div className="flex items-start space-x-2">
-                        <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                        <a 
-                          href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" 
-                          target='_blank' 
-                          className="text-gray-300 text-xs sm:text-sm hover:text-yellow-400"
-                        >
-                          7544 Diplomat Dr #101, Manassas, VA 20109
-                        </a>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0" />
-                        <a 
-                          href="tel:8007860395" 
-                          className="text-gray-300 text-xs sm:text-sm hover:text-yellow-400"
-                        >
-                          (800) 786-0395
-                        </a>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0" />
-                        <span className="text-gray-300 text-xs sm:text-sm">
-                          Mon - Fri: 9:00 AM - 6:00 PM
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Mobile Social Links */}
-                    <ul className="flex items-center gap-3 mt-4">
-                      {socialLinks.map((social) => (
-                        <li key={social.label}>
-                          <a
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Image
-                              src={social.icon}
-                              alt={social.label}
-                              width={28}
-                              height={28}
-                              className="w-7 h-7 sm:w-8 sm:h-8 hover:scale-110 transition-transform"
-                            />
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  
 
                   {/* Mobile Menu Items */}
                   <nav className="space-y-1">
@@ -413,6 +356,57 @@ const Navbar = () => {
                       Request A Quote
                     </Link>
                   </div>
+
+                  <div className="space-y-2.5 sm:space-y-3">
+                      <div className="flex items-start space-x-2">
+                        <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                        <a 
+                          href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" 
+                          target='_blank' 
+                          className="text-gray-300 text-xs sm:text-sm hover:text-yellow-400"
+                        >
+                          7544 Diplomat Dr #101, Manassas, VA 20109
+                        </a>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0" />
+                        <a 
+                          href="tel:8007860395" 
+                          className="text-gray-300 text-xs sm:text-sm hover:text-yellow-400"
+                        >
+                          (800) 786-0395
+                        </a>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0" />
+                        <span className="text-gray-300 text-xs sm:text-sm">
+                          Mon - Fri: 9:00 AM - 6:00 PM
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Mobile Social Links */}
+                    <ul className="flex items-center gap-3 mt-4">
+                      {socialLinks.map((social) => (
+                        <li key={social.label}>
+                          <a
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Image
+                              src={social.icon}
+                              alt={social.label}
+                              width={28}
+                              height={28}
+                              className="w-7 h-7 sm:w-8 sm:h-8 hover:scale-110 transition-transform"
+                            />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+
+
                 </div>
               </div>
             </div>
