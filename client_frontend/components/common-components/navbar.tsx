@@ -126,7 +126,7 @@ const Navbar = () => {
                   {/* Desktop Logo */}
                   <div className="hidden lg:block relative w-[180px] xl:w-[200px] 2xl:w-[320px] h-auto">
                     <Image 
-                      src="/images/logo.png" 
+                      src="/images/vsfus-logo.png" 
                       alt="Company Logo"  
                       width={220}
                       height={40}
@@ -136,9 +136,9 @@ const Navbar = () => {
                   </div>
                   
                   {/* Mobile Logo */}
-                  <div className="lg:hidden relative w-[340px] sm:w-[160px] md:w-[180px] h-auto">
+                  <div className="lg:hidden relative w-[240px] sm:w-[160px] md:w-[180px] h-auto">
                     <Image 
-                      src="/images/logo.png" 
+                      src="/images/vsfus-logo.png" 
                       alt="Company Logo" 
                       width={180}
                       height={35}
@@ -147,7 +147,7 @@ const Navbar = () => {
                     />
                   </div>
                   
-                  <div className="absolute inset-0 bg-yellow-500/10 blur-xl rounded-lg -z-10"></div>
+                  <div className="absolute  bg-yellow-500/10  rounded-lg "></div>
                 </div>
               </Link>
             </div>
