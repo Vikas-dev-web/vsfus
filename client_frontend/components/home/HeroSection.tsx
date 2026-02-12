@@ -48,7 +48,7 @@ const HeroSection = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-white-300 max-w-md sm:max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
+          <p className="text-base sm:text-lg md:text-xl text-white max-w-md sm:max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
             Our professionals are available to you 24 hours a day, 7 days a week.
           </p>
 

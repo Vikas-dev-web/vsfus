@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, MapPin, Phone, Clock, ChevronDown, Facebook, Twitter, Instagram, Linkedin, ChevronRight } from 'lucide-react';
+import { Menu, X, MapPin, Phone, Clock, ChevronDown, ChevronRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,10 +35,10 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: "/images/facebook-img.png", href: 'https://www.facebook.com/pages/VSF/160758390617323', label: 'Facebook' },
+    { icon: "/images/twitter-img.png", href: 'https://twitter.com/vsfus', label: 'Twitter' },
+    { icon: "/images/linkedin-img.png", href: 'https://www.linkedin.com/company/virginia-surveillance-force', label: 'LinkedIn' },
+    { icon: "/images/youtube-img.png", href: 'https://www.youtube.com/channel/UCHi7o-he252fKlxkMGloQtw', label: 'YouTube' },
   ];
 
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -67,14 +67,12 @@ const Navbar = () => {
     };
   }, [activeDropdown]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-    
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -90,166 +88,129 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Header with all elements in one row */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-black/90 backdrop-blur-md py-2 shadow-xl' 
-          : 'bg-black/50 backdrop-blur-sm py-1'
+          ? 'bg-black/90 backdrop-blur-md py-1.5 lg:py-2 shadow-xl' 
+          : 'bg-black/50 backdrop-blur-sm py-1 lg:py-1.5'
       }`}>
-        <div className="container mx-auto px-4">
-          {/* Top Row: Contact Info - Logo - Business Hours & Social */}
-          <div className="flex items-center justify-between py-1 border-b border-gray-700">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-5 xl:px-6 2xl:px-8">
+          {/* Top Row */}
+          <div className="flex items-center justify-between py-0.5 lg:py-1 border-b border-gray-700">
             {/* Left Side - Address & Phone */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-yellow-400" />
-                <span className="text-gray-300 text-sm"><a 
-                  href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" target='_blank' 
-                  className="text-gray-300 text-sm hover:text-yellow-400 transition-colors"
-                >7544 Diplomat Dr #101, Manassas, VA 20109</a></span>
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
+              <div className="flex items-center space-x-1.5 xl:space-x-2">
+                <MapPin className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-yellow-400" />
+                <a 
+                  href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" 
+                  target='_blank' 
+                  className="text-gray-300 text-[11px] xl:text-[12px] 2xl:text-[13px] hover:text-yellow-400 transition-colors"
+                >
+                  7544 Diplomat Dr #101, Manassas, VA 20109
+                </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-yellow-400" />
+              <div className="flex items-center space-x-1.5 xl:space-x-2">
+                <Phone className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-yellow-400" />
                 <a 
                   href="tel:8007860395" 
-                  className="text-gray-300 text-sm hover:text-yellow-400 transition-colors"
+                  className="text-gray-300 text-[11px] xl:text-[12px] 2xl:text-[13px] hover:text-yellow-400 transition-colors"
                 >
                   (800) 786-0395
                 </a>
               </div>
             </div>
 
-            {/* Logo - Center with responsive sizing */}
-            <div className="">
+            {/* Logo */}
+            <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
               <Link href="/" className="flex items-center">
                 <div className="relative">
-                  {/* Desktop: Large Logo */}
-                  <div className="hidden lg:block relative w-100 h-auto">
+                  {/* Desktop Logo */}
+                  <div className="hidden lg:block relative w-[180px] xl:w-[200px] 2xl:w-[320px] h-auto">
                     <Image 
                       src="/images/logo.png" 
                       alt="Company Logo"  
-                      className="w-full"
-                      priority
-                      width={500}
+                      width={220}
                       height={40}
+                      className="w-full h-auto"
+                      priority
                     />
                   </div>
                   
-                  {/* Mobile: Small Logo */}
-                  <div className="lg:hidden relative w-60 h-auto">
+                  {/* Mobile Logo */}
+                  <div className="lg:hidden relative w-[140px] sm:w-[160px] md:w-[180px] h-auto">
                     <Image 
                       src="/images/logo.png" 
                       alt="Company Logo" 
-                      className="object-contain"
+                      width={180}
+                      height={35}
+                      className="object-contain w-full h-auto"
                       priority
-                       width={300}
-                      height={40}
                     />
                   </div>
                   
-                  {/* Logo Glow Effect */}
                   <div className="absolute inset-0 bg-yellow-500/10 blur-xl rounded-lg -z-10"></div>
                 </div>
               </Link>
             </div>
 
-            {/* Right Side - Business Hours & Social Media */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4 text-yellow-400" />
-                <span className="text-gray-300 text-sm">Mon - Fri: 9AM - 6PM</span>
+            {/* Right Side - Hours & Social */}
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
+              <div className="flex items-center space-x-1.5 xl:space-x-2">
+                <Clock className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-yellow-400" />
+                <span className="text-gray-300 text-[11px] xl:text-[12px] 2xl:text-[13px]">Mon - Fri: 9AM - 6PM</span>
               </div>
               
-               <ul className="flex justify-start lg:justify-center gap-6">
-        <li>
-            <a
-                href="https://www.facebook.com/pages/VSF/160758390617323?__mref=message_bubble"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img
-                    src="/images/facebook-img.png"
-                    alt="Facebook"
-                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
-                />
-            </a>
-        </li>
-
-        <li>
-            <a
-                href="https://twitter.com/vsfus"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img
-                    src="/images/twitter-img.png"
-                    alt="Twitter"
-                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
-                />
-            </a>
-        </li>
-
-        <li>
-            <a
-                href="https://www.linkedin.com/company/virginia-surveillance-force"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img
-                    src="/images/linkedin-img.png"
-                    alt="LinkedIn"
-                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
-                />
-            </a>
-        </li>
-
-        <li>
-            <a
-                href="https://www.youtube.com/channel/UCHi7o-he252fKlxkMGloQtw"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img
-                    src="/images/youtube-img.png"
-                    alt="YouTube"
-                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
-                />
-            </a>
-        </li>
-    </ul>
+              <ul className="flex items-center gap-2 xl:gap-3 2xl:gap-4">
+                {socialLinks.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={social.icon}
+                        alt={social.label}
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 hover:scale-110 transition-transform duration-300"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Mobile Menu Button Only */}
-            <div className="flex lg:hidden items-center ml-auto">
+            {/* Mobile Menu Button */}
+            <div className="flex lg:hidden items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white p-2"
+                className="text-white p-1.5 sm:p-2 hover:bg-white/10 rounded-lg transition-colors"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X size={22} className="sm:w-6 sm:h-6" /> : <Menu size={22} className="sm:w-6 sm:h-6" />}
               </button>
             </div>
           </div>
 
-          {/* Bottom Row: Navigation - Centered */}
-          <div className="hidden lg:flex justify-center py-4">
-            <nav className="flex items-center space-x-1">
+          {/* Bottom Row - Navigation - Responsive for all screen sizes */}
+          <div className="hidden lg:flex justify-center py-2 xl:py-3 2xl:py-4">
+            <nav className="flex items-center space-x-0.5 xl:space-x-1 2xl:space-x-2">
               {menuItems.map((item) => (
                 <div key={item.name} className="relative group" ref={mobileMenuRef}>
                   {item.submenu ? (
                     <button
                       onClick={() => toggleDropdown(item.name)}
-                      className="flex items-center px-4 py-2 text-gray-200 hover:text-yellow-400 transition-all duration-200 font-medium text-sm uppercase tracking-wider"
+                      className="flex items-center px-2 xl:px-3 2xl:px-4 py-1.5 xl:py-2 text-gray-200 hover:text-yellow-400 transition-all duration-200 font-medium whitespace-nowrap
+                        text-[11px] xl:text-[12px] 2xl:text-[13px] uppercase tracking-wider"
                     >
                       {item.name}
-                      {item.submenu && (
-                        <ChevronDown className="ml-1 h-4 w-4" />
-                      )}
+                      <ChevronDown className="ml-0.5 xl:ml-1 h-3 w-3 xl:h-3.5 xl:w-3.5" />
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className="flex items-center px-4 py-2 text-gray-200 hover:text-yellow-400 transition-all duration-200 font-medium text-sm uppercase tracking-wider"
+                      className="flex items-center px-2 xl:px-3 2xl:px-4 py-1.5 xl:py-2 text-gray-200 hover:text-yellow-400 transition-all duration-200 font-medium whitespace-nowrap
+                        text-[11px] xl:text-[12px] 2xl:text-[13px] uppercase tracking-wider"
                     >
                       {item.name}
                     </Link>
@@ -261,12 +222,13 @@ const Navbar = () => {
                         ? 'opacity-100 visible translate-y-0' 
                         : 'opacity-0 invisible -translate-y-2'
                     }`}>
-                      <div className="bg-black/95 backdrop-blur-sm border border-yellow-500/20 rounded-lg shadow-2xl py-2 min-w-[220px]">
+                      <div className="bg-black/95 backdrop-blur-sm border border-yellow-500/20 rounded-lg shadow-2xl py-1.5 min-w-[200px] xl:min-w-[220px] 2xl:min-w-[240px]">
                         {item.submenu.map((subItem) => (
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="block px-5 py-3 text-gray-300 hover:text-yellow-400 hover:bg-yellow-500/10 transition-colors duration-150 text-sm"
+                            className="block px-4 xl:px-5 2xl:px-6 py-2 xl:py-2.5 2xl:py-3 text-gray-300 hover:text-yellow-400 hover:bg-yellow-500/10 transition-colors duration-150
+                              text-[11px] xl:text-[12px] 2xl:text-[13px]"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {subItem.name}
@@ -278,10 +240,12 @@ const Navbar = () => {
                 </div>
               ))}
               
-              {/* Request A Quote Button - Desktop Only */}
+              {/* Request A Quote Button */}
               <Link
                 href="/request-quote"
-                className="ml-4 bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-black font-semibold px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-200 hover:shadow-lg hover:shadow-yellow-500/25"
+                className="ml-2 xl:ml-3 2xl:ml-4 bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-black font-semibold 
+                  px-4 xl:px-5 2xl:px-6 py-1.5 xl:py-2 rounded-full whitespace-nowrap
+                  text-[11px] xl:text-[12px] 2xl:text-[13px] uppercase tracking-wider transition-all duration-200 hover:shadow-lg hover:shadow-yellow-500/25"
               >
                 Request A Quote
               </Link>
@@ -290,10 +254,9 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay - FIXED VERSION */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden overflow-hidden">
-          {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => {
@@ -302,35 +265,84 @@ const Navbar = () => {
             }}
           />
           
-          {/* Menu Panel - Scrollable Container */}
-          <div className="absolute top-0 left-0 h-full w-full max-w-sm overflow-hidden">
+          <div className="absolute top-0 left-0 h-full w-full max-w-xs sm:max-w-sm overflow-hidden">
             <div className="relative h-full w-full bg-black/95 border-r border-yellow-500/20 shadow-2xl flex flex-col">
-              {/* Fixed Header Section */}
-              <div className="flex-shrink-0 p-6 border-b border-yellow-500/20 bg-black/95">
-                {/* Mobile Menu Header - Logo and Close Button */}
+              {/* Fixed Header */}
+              <div className="flex-shrink-0 p-4 sm:p-5 border-b border-yellow-500/20 bg-black/95">
                 <div className="flex items-center justify-between">
-                  
+                  <div className="relative w-28 sm:w-32 h-8 sm:h-10">
+                    <Image 
+                      src="/images/logo.png" 
+                      alt="Company Logo" 
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                   <button
                     onClick={() => {
                       setIsMenuOpen(false);
                       setMobileOpenSubmenu(null);
                     }}
-                    className="text-gray-400 hover:text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
-                    aria-label="Close menu"
+                    className="text-gray-400 hover:text-white p-1.5 sm:p-2 hover:bg-white/10 rounded-lg transition-colors"
                   >
-                    <X size={24} />
+                    <X size={22} className="sm:w-6 sm:h-6" />
                   </button>
                 </div>
               </div>
 
-              {/* Scrollable Content Area */}
+              {/* Scrollable Content */}
               <div className="flex-1 overflow-y-auto">
-                <div className="p-6 pt-0">
+                <div className="p-4 sm:p-5">
                   {/* Mobile Contact Info */}
-                  <div className="mb-6 pb-6 border-b border-gray-800/50">
-                  
+                  <div className="mb-5 pb-5 border-b border-gray-800/50">
+                    <div className="space-y-2.5 sm:space-y-3">
+                      <div className="flex items-start space-x-2">
+                        <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                        <a 
+                          href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" 
+                          target='_blank' 
+                          className="text-gray-300 text-xs sm:text-sm hover:text-yellow-400"
+                        >
+                          7544 Diplomat Dr #101, Manassas, VA 20109
+                        </a>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0" />
+                        <a 
+                          href="tel:8007860395" 
+                          className="text-gray-300 text-xs sm:text-sm hover:text-yellow-400"
+                        >
+                          (800) 786-0395
+                        </a>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 flex-shrink-0" />
+                        <span className="text-gray-300 text-xs sm:text-sm">
+                          Mon - Fri: 9:00 AM - 6:00 PM
+                        </span>
+                      </div>
+                    </div>
 
-                    
+                    {/* Mobile Social Links */}
+                    <ul className="flex items-center gap-3 mt-4">
+                      {socialLinks.map((social) => (
+                        <li key={social.label}>
+                          <a
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Image
+                              src={social.icon}
+                              alt={social.label}
+                              width={28}
+                              height={28}
+                              className="w-7 h-7 sm:w-8 sm:h-8 hover:scale-110 transition-transform"
+                            />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   {/* Mobile Menu Items */}
@@ -338,10 +350,10 @@ const Navbar = () => {
                     {menuItems.map((item) => (
                       <div key={item.name} className="border-b border-gray-800/30 last:border-0">
                         {item.submenu ? (
-                          <div className="py-3">
+                          <div className="py-2 sm:py-3">
                             <button
                               onClick={() => toggleMobileSubmenu(item.name)}
-                              className="flex items-center justify-between w-full text-left text-gray-300 hover:text-yellow-400 transition-colors text-base font-medium"
+                              className="flex items-center justify-between w-full text-left text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base font-medium"
                             >
                               <span>{item.name}</span>
                               <ChevronRight className={`h-4 w-4 transition-transform duration-200 ${
@@ -349,16 +361,15 @@ const Navbar = () => {
                               }`} />
                             </button>
                             
-                            {/* Mobile Submenu - Only opens on click */}
                             <div className={`overflow-hidden transition-all duration-200 ${
                               mobileOpenSubmenu === item.name ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'
                             }`}>
-                              <div className="ml-4 space-y-1 pb-1">
+                              <div className="ml-3 sm:ml-4 space-y-1 pb-1">
                                 {item.submenu.map((subItem) => (
                                   <Link
                                     key={subItem.name}
                                     href={subItem.href}
-                                    className="block py-2 text-gray-400 hover:text-yellow-400 text-sm transition-colors"
+                                    className="block py-1.5 sm:py-2 text-gray-400 hover:text-yellow-400 text-xs sm:text-sm transition-colors"
                                     onClick={() => {
                                       setIsMenuOpen(false);
                                       setMobileOpenSubmenu(null);
@@ -371,10 +382,10 @@ const Navbar = () => {
                             </div>
                           </div>
                         ) : (
-                          <div className="py-3">
+                          <div className="py-2 sm:py-3">
                             <Link
                               href={item.href}
-                              className="flex items-center justify-between w-full text-gray-300 hover:text-yellow-400 transition-colors text-base font-medium"
+                              className="flex items-center justify-between w-full text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base font-medium"
                               onClick={() => {
                                 setIsMenuOpen(false);
                                 setMobileOpenSubmenu(null);
@@ -387,39 +398,13 @@ const Navbar = () => {
                       </div>
                     ))}
                   </nav>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-2">
-                        <MapPin className="h-4 w-4 text-yellow-400 flex-shrink-0" />
-                        <a 
-                          href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" target='_blank' 
-                          className="text-gray-300 text-sm hover:text-yellow-400 font-medium"
-                        >
-                          7544 Diplomat Dr #101, Manassas, VA 20109
-                        </a>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Phone className="h-4 w-4 text-yellow-400 flex-shrink-0" />
-                        <a 
-                          href="tel:8007860395" 
-                          className="text-gray-300 text-sm hover:text-yellow-400 font-medium"
-                        >
-                          (800) 786-0395
-                        </a>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Clock className="h-4 w-4 text-yellow-400 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">
-                          Mon - Fri: 9:00 AM - 6:00 PM
-                        </span>
-                      </div>
-                    </div>
-                    
 
                   {/* Mobile Request Quote Button */}
-                  <div className="mt-8 pb-6">
+                  <div className="mt-6 sm:mt-8 pb-6">
                     <Link
                       href="/request-quote"
-                      className="block w-full bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-black font-semibold px-6 py-3 rounded-full text-sm uppercase tracking-wider text-center transition-all duration-200"
+                      className="block w-full bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-black font-semibold 
+                        px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider text-center transition-all duration-200"
                       onClick={() => {
                         setIsMenuOpen(false);
                         setMobileOpenSubmenu(null);

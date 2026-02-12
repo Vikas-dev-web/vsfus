@@ -8,8 +8,7 @@ import Footer from '@/components/common-components/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'DEF Security Services',
-  description: 'Professional Cybersecurity and Private Bodyguard Services',
+  title: 'Virginia Surveillance Force',
 }
 
 export default function RootLayout({
