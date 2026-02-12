@@ -103,15 +103,18 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-yellow-400" />
-                <span className="text-gray-300 text-sm">123 Security Street, Safety City</span>
+                <span className="text-gray-300 text-sm"><a 
+                  href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" target='_blank' 
+                  className="text-gray-300 text-sm hover:text-yellow-400 transition-colors"
+                >7544 Diplomat Dr #101, Manassas, VA 20109</a></span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-yellow-400" />
                 <a 
-                  href="tel:18005555697" 
+                  href="tel:8007860395" 
                   className="text-gray-300 text-sm hover:text-yellow-400 transition-colors"
                 >
-                  1 800 555 56 97
+                  (800) 786-0395
                 </a>
               </div>
             </div>
@@ -157,20 +160,63 @@ const Navbar = () => {
                 <span className="text-gray-300 text-sm">Mon - Fri: 9AM - 6PM</span>
               </div>
               
-              <div className="flex items-center space-x-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-yellow-400 transition-colors"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="h-4 w-4" />
-                  </a>
-                ))}
-              </div>
+               <ul className="flex justify-start lg:justify-center gap-6">
+        <li>
+            <a
+                href="https://www.facebook.com/pages/VSF/160758390617323?__mref=message_bubble"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="/images/facebook-img.png"
+                    alt="Facebook"
+                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
+                />
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="https://twitter.com/vsfus"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="/images/twitter-img.png"
+                    alt="Twitter"
+                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
+                />
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="https://www.linkedin.com/company/virginia-surveillance-force"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="/images/linkedin-img.png"
+                    alt="LinkedIn"
+                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
+                />
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="https://www.youtube.com/channel/UCHi7o-he252fKlxkMGloQtw"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="/images/youtube-img.png"
+                    alt="YouTube"
+                    className="w-8 h-8 hover:scale-110 transition-transform duration-300"
+                />
+            </a>
+        </li>
+    </ul>
             </div>
 
             {/* Mobile Menu Button Only */}
@@ -344,17 +390,20 @@ const Navbar = () => {
                     <div className="space-y-3">
                       <div className="flex items-center space-x-2">
                         <MapPin className="h-4 w-4 text-yellow-400 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">
-                          123 Security Street, Safety City
-                        </span>
+                        <a 
+                          href="https://maps.app.goo.gl/uSR8odXD56PMeaNC7" target='_blank' 
+                          className="text-gray-300 text-sm hover:text-yellow-400 font-medium"
+                        >
+                          7544 Diplomat Dr #101, Manassas, VA 20109
+                        </a>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Phone className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                         <a 
-                          href="tel:18005555697" 
+                          href="tel:8007860395" 
                           className="text-gray-300 text-sm hover:text-yellow-400 font-medium"
                         >
-                          1 800 555 56 97
+                          (800) 786-0395
                         </a>
                       </div>
                       <div className="flex items-center space-x-2">
@@ -364,20 +413,7 @@ const Navbar = () => {
                         </span>
                       </div>
                     </div>
-                    {/* Mobile Social Links */}
-                    <div className="flex items-center space-x-4 mt-4">
-                      {socialLinks.map((social) => (
-                        <a
-                          key={social.label}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-yellow-400 transition-colors"
-                        >
-                          <social.icon className="h-5 w-5" />
-                        </a>
-                      ))}
-                    </div>
+                    
 
                   {/* Mobile Request Quote Button */}
                   <div className="mt-8 pb-6">
