@@ -126,7 +126,7 @@ const Navbar = () => {
                   {/* Desktop Logo */}
                   <div className="hidden lg:block relative w-[180px] xl:w-[200px] 2xl:w-[320px] h-auto">
                     <Image 
-                      src="/images/vsfus-logo.png" 
+                      src="/images/logo2.png" 
                       alt="Company Logo"  
                       width={220}
                       height={40}
@@ -138,7 +138,7 @@ const Navbar = () => {
                   {/* Mobile Logo */}
                   <div className="lg:hidden relative w-[240px] sm:w-[160px] md:w-[180px] h-auto">
                     <Image 
-                      src="/images/vsfus-logo.png" 
+                      src="/images/logo2.png" 
                       alt="Company Logo" 
                       width={180}
                       height={35}
