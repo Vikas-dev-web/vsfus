@@ -128,9 +128,9 @@ const Navbar = () => {
                     <Image 
                       src="/images/logo2.png" 
                       alt="Company Logo"  
-                      width={220}
-                      height={40}
-                      className="w-full h-auto"
+                      width={350}
+                      height={80}
+     
                       priority
                     />
                   </div>
